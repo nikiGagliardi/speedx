@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bbh0k8cagayud"]
+
+[ext_resource type="AudioStream" uid="uid://dpisul3dhx8w3" path="res://audio/placidplace-franic-acid-trance-395688.ogg" id="1_k52d1"]
+[ext_resource type="Script" uid="uid://c0nl06d2wrv18" path="res://scenes/MusicPlayer.cs" id="2_k52d1"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" unique_id=1482554484]
+stream = ExtResource("1_k52d1")
+script = ExtResource("2_k52d1")

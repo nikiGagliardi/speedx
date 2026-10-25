@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://cmjj7r04m4aa0"]
+
+[ext_resource type="Script" uid="uid://c5jet1pw6a84e" path="res://scenes/Settings.cs" id="1_5p8wc"]
+
+[node name="Settings" type="Control" unique_id=656991433]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_5p8wc")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1378501351]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1290965966]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_right = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Impostazioni" type="Label" parent="VBoxContainer" unique_id=1781244519]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Impostazioni"
+
+[node name="Sensibilita" type="Label" parent="VBoxContainer" unique_id=1737191364]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Sensibilità"
+
+[node name="SensitivitySlider" type="HSlider" parent="VBoxContainer" unique_id=259862702]
+layout_mode = 2
+min_value = 1.0
+max_value = 10.0
+step = 0.1
+value = 4.5
+
+[node name="SensitivityValue" type="Label" parent="VBoxContainer" unique_id=1454594435]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="Soglia" type="Label" parent="VBoxContainer" unique_id=350803457]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Soglia minima"
+
+[node name="ThresholdSlider" type="HSlider" parent="VBoxContainer" unique_id=656862127]
+layout_mode = 2
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+page = 2.0
+value = 0.5
+
+[node name="ThresholdValue" type="Label" parent="VBoxContainer" unique_id=1309109954]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="Volume" type="Label" parent="VBoxContainer" unique_id=1927336148]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Volume musica"
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer" unique_id=520296389]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="VolumeValue" type="Label" parent="VBoxContainer" unique_id=699128811]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="LabelSlide" type="Label" parent="VBoxContainer" unique_id=687513727]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Numero Corsie"
+
+[node name="LanesSlider" type="HSlider" parent="VBoxContainer" unique_id=1905204875]
+layout_mode = 2
+min_value = 3.0
+max_value = 7.0
+value = 3.0
+
+[node name="LanesValue" type="Label" parent="VBoxContainer" unique_id=1320467545]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=1016387774]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Torna al menu"

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b6wckbyw866bp"]
+
+[ext_resource type="Script" uid="uid://dugemh3fd2h0f" path="res://Player.cs" id="1_4flbx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfnw"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xhfnw"]
+material = SubResource("StandardMaterial3D_xhfnw")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xhfnw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kpjcp"]
+
+[node name="Player" type="CharacterBody3D" unique_id=656761847]
+script = ExtResource("1_4flbx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=574282273]
+mesh = SubResource("SphereMesh_xhfnw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=785433478]
+shape = SubResource("SphereShape3D_xhfnw")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=943395834]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=350550021]
+shape = SubResource("SphereShape3D_kpjcp")

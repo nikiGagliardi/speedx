@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://yjo5a6jl7n0j"]
+
+[ext_resource type="PackedScene" uid="uid://b6wckbyw866bp" path="res://Player.tscn" id="1_elqb8"]
+[ext_resource type="PackedScene" uid="uid://bn2w642i21acv" path="res://scenes/StarField.tscn" id="1_jlsqs"]
+[ext_resource type="Script" uid="uid://brgin8ngju757" path="res://scenes/CameraFollow.cs" id="1_vcsgt"]
+[ext_resource type="Script" uid="uid://cpn5ud40ocxto" path="res://scenes/ChunkSpawner.cs" id="2_rvslj"]
+[ext_resource type="PackedScene" uid="uid://cdc6sd5o5bi6g" path="res://scenes/Chunk.tscn" id="3_rarhs"]
+[ext_resource type="PackedScene" uid="uid://dwdfk3ph8u25k" path="res://scenes/Obstacle.tscn" id="4_vcsgt"]
+[ext_resource type="Script" uid="uid://deth83q6k3sx8" path="res://scenes/GameManager.cs" id="6_c01mt"]
+[ext_resource type="Script" uid="uid://b700jvsjrqtrm" path="res://scenes/UI.cs" id="7_nxtc6"]
+[ext_resource type="PackedScene" uid="uid://d2am4r8ma5esc" path="res://scenes/LifePowerUp.tscn" id="7_q8u5g"]
+
+[sub_resource type="Environment" id="Environment_nxtc6"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.4
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_light_energy = 0.5
+fog_density = 1.0
+fog_depth_begin = 45.0
+fog_depth_end = 55.0
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node3D" unique_id=1752786567]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1866572089]
+environment = SubResource("Environment_nxtc6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=256844194]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0)
+light_energy = 2.0
+
+[node name="StarField" parent="." unique_id=75606766 instance=ExtResource("1_jlsqs")]
+
+[node name="Player" parent="." unique_id=656761847 groups=["player"] instance=ExtResource("1_elqb8")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=285260966]
+script = ExtResource("1_vcsgt")
+TargetPath = NodePath("../Player")
+Offset = Vector3(0, 0.2, 0)
+
+[node name="ChunkSpawner" type="Node3D" parent="." unique_id=550013218]
+script = ExtResource("2_rvslj")
+ChunkScene = ExtResource("3_rarhs")
+ObstacleScene = ExtResource("4_vcsgt")
+LifePowerUpScene = ExtResource("7_q8u5g")
+
+[node name="GameManager" type="Node" parent="." unique_id=1694996704]
+script = ExtResource("6_c01mt")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1406033756 groups=["ui"]]
+process_mode = 3
+script = ExtResource("7_nxtc6")
+
+[node name="BestScoreLabel" type="Label" parent="UI" unique_id=1913876858]
+offset_left = 52.0
+offset_top = 29.0
+offset_right = 126.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 30
+text = "Best:"
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=2074285507]
+offset_left = 51.0
+offset_top = 71.0
+offset_right = 196.0
+offset_bottom = 113.0
+theme_override_font_sizes/font_size = 30
+text = "Score: 0"
+
+[node name="SpeedLabel" type="Label" parent="UI" unique_id=1239988939]
+offset_left = 50.0
+offset_top = 114.0
+offset_right = 172.0
+offset_bottom = 156.0
+theme_override_font_sizes/font_size = 30
+text = "Speed: 0"
+
+[node name="PauseButton" type="Button" parent="UI" unique_id=1997104199]
+offset_left = 1077.0
+offset_top = 8.0
+offset_right = 1143.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 38
+text = "II"
+
+[node name="GameOverScreen" type="Control" parent="UI" unique_id=1834711539]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = 9.0
+offset_right = -18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/GameOverScreen" unique_id=469513146]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -124.0
+offset_right = 120.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Game Over"
+
+[node name="Button" type="Button" parent="UI/GameOverScreen" unique_id=1187888380]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -222.0
+offset_top = -258.0
+offset_right = 225.0
+offset_bottom = -157.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "RESTART"
+
+[node name="GameOverBestLabel" type="Label" parent="UI/GameOverScreen" unique_id=2038020289]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.517
+anchor_top = 0.43100002
+anchor_right = 0.517
+anchor_bottom = 0.43100002
+offset_left = -78.584045
+offset_top = -17.288025
+offset_right = 78.415955
+offset_bottom = 17.711975
+theme_override_font_sizes/font_size = 25
+
+[node name="PauseScreen" type="Control" parent="UI" unique_id=557157185]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="UI/PauseScreen" unique_id=1256647861]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseScreen" unique_id=2001738443]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 71.0
+offset_top = 53.0
+offset_right = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 70
+
+[node name="Resume" type="Button" parent="UI/PauseScreen/VBoxContainer" unique_id=111247549]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Riprendi"
+
+[node name="Restart" type="Button" parent="UI/PauseScreen/VBoxContainer" unique_id=1761554530]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+
+[node name="Menu" type="Button" parent="UI/PauseScreen/VBoxContainer" unique_id=769161388]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Torna al menu"
+
+[node name="LivesContainer" type="HBoxContainer" parent="UI" unique_id=1291480983]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -69.0
+offset_right = -14.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(-20, 20)
+
+[node name="Life1" type="ColorRect" parent="UI/LivesContainer" unique_id=215606355]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="Life2" type="ColorRect" parent="UI/LivesContainer" unique_id=1946386141]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="Life3" type="ColorRect" parent="UI/LivesContainer" unique_id=848043510]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+color = Color(0.2, 0.2, 0.2, 1)

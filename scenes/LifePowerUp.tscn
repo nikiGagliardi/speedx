@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d2am4r8ma5esc"]
+
+[ext_resource type="Script" uid="uid://rpaggwkop57m" path="res://scenes/LifePowerUp.cs" id="1_02alx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_02alx"]
+size = Vector3(15, 2, 15)
+
+[node name="LifePowerUp" type="Area3D" unique_id=1059635368]
+script = ExtResource("1_02alx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=597111766]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_02alx")
+debug_color = Color(0.9764706, 0.7372549, 0.49411765, 0.58431375)
+debug_fill = false

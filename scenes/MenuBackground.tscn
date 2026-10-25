@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bcbnfr5ohvd0m"]
+
+[ext_resource type="Script" uid="uid://dvgyjo2qaoc0x" path="res://scenes/MenuBackground.cs" id="1_e5on1"]
+
+[node name="MenuBackground" type="Node3D" unique_id=1187101746]
+script = ExtResource("1_e5on1")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=633294877]
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1338299568]
+
+[node name="TunnelSpawner" type="Node3D" parent="." unique_id=1895881832]

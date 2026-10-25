@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cdc6sd5o5bi6g"]
+
+[ext_resource type="Script" uid="uid://kgkyblmlr5jd" path="res://scenes/Chunk.cs" id="1_3txbk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxlc1"]
+albedo_color = Color(0.85, 0.85, 0.85, 1)
+emission = Color(0.85, 0.85, 0.85, 1)
+emission_energy_multiplier = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_3txbk"]
+material = SubResource("StandardMaterial3D_qxlc1")
+size = Vector3(2.5, 0.2, 40)
+
+[node name="Chunk" type="Node3D" unique_id=1804824011]
+script = ExtResource("1_3txbk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=43472211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0056090355, 0, 0.003064394)
+mesh = SubResource("BoxMesh_3txbk")

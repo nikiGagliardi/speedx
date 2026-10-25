@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dwdfk3ph8u25k"]
+
+[ext_resource type="Script" uid="uid://cf3nrmmkh073s" path="res://scenes/Obstacle.cs" id="1_jde5u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdg2s"]
+metallic = 1.0
+roughness = 0.2
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_sdg2s"]
+material = SubResource("StandardMaterial3D_sdg2s")
+size = Vector3(2.5, 3, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jde5u"]
+size = Vector3(2.5, 3, 2.5)
+
+[node name="Obstacle" type="Area3D" unique_id=598829470 groups=["obstacle"]]
+script = ExtResource("1_jde5u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=776801625]
+mesh = SubResource("BoxMesh_sdg2s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=160617892]
+shape = SubResource("BoxShape3D_jde5u")
